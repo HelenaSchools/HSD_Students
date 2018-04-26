@@ -1,0 +1,23 @@
+<table border="0" cellspaceing="0" cellpadding="4" class="linkDescList" id="additionalAddresses">
+    <thead>
+        
+            <th>Name</th>
+            <th>Relationship</th>
+            <th>Street Address</th>
+            <th>Address Line 2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    $j(document).ready(function(){
+        $j('tr[bgcolor="#f6f6f6"]').addClass('headerrow');
+        $j('.box-round table').addClass('linkDeskList');
+        $j('table tr').removeAttr('bgcolor');
+        $j('.box-round').append($j('#additionalAddresses'))
+    })
+</script>
