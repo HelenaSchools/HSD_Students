@@ -1,0 +1,22 @@
+<script>
+    $j(document).ready(function(){
+        // add styling to the table
+        $j('div.box-round table tr').removeAttr('bgcolor')
+        $j('div.box-round table').addClass('linkDescList');
+
+        $j('input[name$=sat]').closest('td').prev().remove();
+        $j('input[name$=sat]').closest('td').remove();
+        $j('input[name$=ate_skill_cert]').closest('td').prev().remove();
+        $j('input[name$=ate_skill_cert]').closest('td').remove();
+        $j('input[name*=act]').closest('td').prev().remove();
+        $j('input[name*=act]').closest('td').remove();
+        var contentToMove='<tr><td class="bold">'
+            +$j('select[name$=spedlep]').closest('td').prev().html()
+            +'</td><td>'+$j('select[name$=spedlep]').closest('td').html()
+            +'</td></tr>';
+        $j('select[name$=language_form]').closest('tr').after(contentToMove);
+        $j('select[name$=spedlep]').first().closest('td').prev().remove();
+        $j('select[name$=spedlep]').first().closest('td').remove();
+        $j('td a').first().closest('td').prev().remove();
+    })
+</script>

@@ -1,0 +1,244 @@
+<table style="display: none">
+    <tbody>
+        <tr id="prevNames">
+            <td class="bold">Previous Names</td>
+            <td>~(student_alias)</td>
+        </tr>
+        <tr id="studLivesWith">
+            <td class="bold">Student Lives With: </td>
+            <td>~(student_liveswith)</td>
+        </tr>
+        <tr id="aggregateHours">
+            <td class="bold">Aggregate Hours of Instruction</td>
+            <td>~(MT_aggregatehours)</td>
+        </tr>
+        <tr id="boundryException">
+            <tr>
+                <td class="bold">Boundry Exception Reason</td>
+                <td id="beReason">~(be_reason)</td>
+            </tr>
+        </tr>
+        <tr id="fatherComment">
+            <td class="bold">Father Comment</td>
+            <td>~(father_comment)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="fatherDayPhoneAddition"><b> Extension: </b><span id="fatherDayPhoneExtension">~(fatherdayphone_ext)</span></td>
+        </tr>
+        <tr id="fatherAlternatePhone">
+            <td class="bold">Father's Alternate Phone</td>
+            <td>~(Father_alternate_phone)</td>
+        </tr>
+        <tr id="motherComment">
+            <td class="bold">Mother Comment</td>
+            <td>~(mother_comment)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="motherDayPhoneAddition"><b> Extension: </b><span id="motherDayPhoneExtension">~(motherdayphone_ext)</span></td>
+        </tr>
+        <tr id="motherAlternatePhone">
+            <td class="bold">Mother's Alternate Phone</td>
+            <td>~(Mother_alternate_phone)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="stepfatherDayPhoneAddition"><b> Extension: </b><span id="stepfatherDayPhoneExtension">~(stepfatherdayphone_ext)</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="stepmotherDayPhoneAddition"><b> Extension: </b><span id="stepmotherDayPhoneExtension">~(stepmotherdayphone_ext)</span></td>
+        </tr>
+        
+    </tbody>
+</table>
+<table id="guardianTable" style="display: none">
+            <tr bgcolor="#f6f6f6" id="guardianHeader">
+                <td colspan="2" class="bold">~[text:psx.html.admin_students.parentsguardian.guardians_name_amp_info]</td>
+            </tr>
+            <tr id="guardian1Name">
+                <td class="bold">~[text:psx.html.admin_students.parentsguardian.last_first_middle]</td>
+                <td>~(guardian_ln), ~(guardian_fn) ~(guardian_mn)</td>
+            </tr>
+            <tr id="guardian1DayPhone">
+                <td class="bold inset-4">Daytime Phone</td>
+                <td>~(guardiandayphone)</td>
+            </tr>
+            <tr id="guardian1AltPhone">
+                <td class="bold inset-4">Alternate Phone</td>
+                <td>~(guardian_alternate_phone)</td>
+            </tr>
+            <tr id="guardian2Name">
+                <td class="bold">~[text:psx.html.admin_students.parentsguardian.last_first_middle]</td>
+                <td>~(guardian_ln2), ~(guardian_fn2) ~(guardian_mn2)</td>
+            </tr>
+            <tr id="guardian2DayPhone">
+                <td class="bold inset-4">Daytime Phone</td>
+                <td>~(guardiandayphone2)</td>
+            </tr >
+            <tr id="guardian2AltPhone">
+                <td class="bold inset-4">Alternate Phone</td>
+                <td>~(guardian2_alternate_phone)</td>
+            </tr>
+</table>
+<table style="display: none" id="stepParentTable">
+    <tr>
+        <td class="bold">Stepfather</td>
+        <td>~(stepfather)</td>
+    </tr> 
+    <tr>
+        <td class="bold">Stepfather's Day Phone</td>
+        <td>~(stepfatherdayphone)</td>
+            
+    </tr>
+    <tr>
+        <td class="bold">Stepfather's Alternate Phone</td>
+        <td>~(stepfather_alternate_phone)</td>
+    </tr> 
+    <td class="bold">Stepmother</td>
+        <td>~(stepmother)</td>
+    </tr> 
+    <tr>
+        <td class="bold">Stepmother's Day Phone</td>
+        <td>~(stepmotherdayphone)</td>
+    </tr>
+    <tr>
+        <td class="bold">Stepmother's Alternate Phone</td>
+        <td>~(stepmother_alternate_phone)</td>
+    </tr>
+</table>
+<style>
+        td.inset-4 {
+            padding-left: 20px;
+        }
+</style>
+            
+<script>
+    $j(document).ready(function(){
+        // add styling to the table
+        $j('div.box-round table tr').removeAttr('bgcolor')
+        $j('div.box-round table').addClass('linkDescList');
+
+        // Remove unwanted rows
+        $j('div.box-round table tr:first-child').remove();
+        removeTableRow('Ethnicity');
+        removeTableRow('Gender');
+        removeTableRow('Grade Level');
+        removeTableRow('Graduation Year');
+        removeTableRow('Student number');
+        removeTableRow('SSN');
+        removeTableRow('Previous Student ID');
+
+        //add rows, if data exists. These are alphabetical. 
+        addTableRow('Aggregate days of membership (YTD)','#aggregateHours')
+        addTableRow('Name (Last, First MI)','#studLivesWith')
+        addTableRow('Name (Last, First MI)','#prevNames')
+        addTableRow('Father','#fatherComment')
+        addTableRow('Father\'s Home Phone','#fatherAlternatePhone')
+        addTableRow('Mother','#motheComment')
+        addTableRow('Mother\'s Home Phone','#motherAlternatephone')
+
+        // Selectively add rows, if data exists.
+        addMultiRow('Mother\'s Home Phone','#stepParentTable')
+
+        //Add Extensions, if they exist
+        appendData('Father\'s Day Phone',$j('#fatherDayPhoneExtension'),$j('#fatherDayPhoneAddition').html())
+        appendData('Mother\'s Day Phone',$j('#motherDayPhoneExtension'),$j('#motherDayPhoneAddition').html())
+        appendData('Stepfather\'s Day Phone',$j('#stepfatherDayPhoneExtension'),$j('#stepfatherDayPhoneAddition').html())
+        appendData('Stepmother\'s Day Phone',$j('#stepmotherDayPhoneExtension'),$j('#stepmotherDayPhoneAddition').html())
+
+        // Add Guardian Table, if needed. 
+        addDataTable('Area/neighborhood',$j('#boundryException'),$j('#beReason').html(),['&nbsp;','NA'])
+        addDataTable('Guardianship',$j('#guardianTable'),$j('td:contains(Guardianship)').first().next().html(),['&nbsp;'])
+
+        // Hide unnessesary guardian data from view. 
+        if($j('td:contains(Guardianship)').first().next().html()!=='&nbsp;'){
+            $j('tr[id^=guardian]').each(function(){
+                var id=this.id;
+                hideData('#'+id);
+            })
+        }
+
+        // Make all phone numbers hyperlink for use with Jabber;
+        $j('td:contains(Phone)').each(function(){
+            if($j(this).next().html()!=='&nbsp;'){
+                $j(this).next().wrapInner('<a href="tel: " ></a>')
+            }
+        })
+
+        
+        // function to remove table rows based upon label data
+        function removeTableRow(data){
+            // find data
+            $j('div.box-round table td:contains('+data+')')
+                .closest('tr') // find nearest table row
+                .remove(); //delete row
+        }
+
+
+        // function to add table rows, if data exists in the new row
+        function addTableRow(location, data){
+            // logical test to see if the data field contains valid data. All data from PowerSchool that is null returns
+            // as a no break space ('&nbsp;') so that is the comparison
+            if($j(''+data+''+' td:last-child').html()!=='&nbsp;'){
+                $j('div.box-round table td:contains('+location+')') //if data exists, find the location to add the row
+                    .closest('tr') // find table row that contains the location
+                    .after($j(''+data+'')); //add data after that row
+            }
+        }
+
+        // funciton to add mulitple rows, if they go after the same location. 
+        function addMultiRow(location, data){
+            var dataRowToAdd; // variable to hold html to add 
+            $j(''+data+' tr').each(function(){ // for each table row do the following
+                var html=$j(this).children().last().html();// variable to hold html
+                if(html!=='&nbsp;'){ // check html for data
+                    dataRowToAdd += '<tr>'+$j(this).html()+'</tr>'; // add the row to the rows to add, if data exists
+                }
+            });
+            $j('td:contains('+location+')').closest('tr').after(dataRowToAdd); // place all rows after the specied location
+        }
+
+        // function append data inside an existing cell, if additional data is needed
+        function appendData(location, qualifier, data){
+            if(qualifier.html()!=='&nbsp;'){ //chekc if data exists
+                $j('div.box-round table td:contains('+location+')')//if it does, find the location
+                    .closest('td') //find the closes table data
+                    .next() // for the table, the next table cell contains the data to append to 
+                    .append(data) // append
+            }
+        }
+
+        //function to add a full data table, inside the existing table
+        function addDataTable(location, data, qualifier, compare){
+            var addThis=data.html();//select the data as plain text html for ease of adding
+            var add=true;//set boolean to compare for all compares in the array
+            if(compare.length>1){//if the array is greater than one....
+                
+                for(i=0;i<compare.length;i++){//iterate through the array to see if any of the comparisons test true;
+                    if(qualifier===compare[i]){// if the comparison tests true....
+                        add=false;// set add to false
+                    }
+                }
+            }else{
+                if(qualifier===compare[0]){//if the array is only one comparison, test it
+                    add=false;// if it tests true, set add to false
+                }
+            }
+            if(add){//if add is still true...
+                $j('div.box-round table td:contains('+location+')')//add the data
+                    .closest('tr')
+                    .after('<div align="center" class="box-round"><table id="idColumnList" style="margin-top:0px; border:none">'+addThis+'</table></div>')
+            }
+        }
+
+        function hideData(data){//hide data if it is blank. 
+            var html=$j(''+data+' td:last-child').html();
+            if(html==='&nbsp;'||html==='&nbsp;, &nbsp; &nbsp;'){
+                $j('#'+data).hide();
+            }
+        }
+    })
+</script>
+

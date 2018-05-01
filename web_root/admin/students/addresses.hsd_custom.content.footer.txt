@@ -1,18 +1,32 @@
-<table border="0" cellspaceing="0" cellpadding="4" class="linkDescList" id="additionalAddresses">
-    <thead>
-        
-            <th>Name</th>
-            <th>Relationship</th>
-            <th>Street Address</th>
-            <th>Address Line 2</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip</th>
-        
-    </thead>
-    <tbody></tbody>
-</table>
-
+<div id="additionalAddresses" ng-app="hsdAngular">
+    <div ng-controller="studentAddressesController" >
+        <table border="0" cellspaceing="0" cellpadding="4" class="linkDescList" ng-show="addresses">
+            <thead>
+                
+                    <th>Name</th>
+                    <th>Relationship</th>
+                    <th>Street Address</th>
+                    <th>Address Line 2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Type</th>
+            </thead>
+            <tbody >
+                <tr ng-repeat="address in addresses track by $index">
+                    <td><a class="ng-scope" target="_blank" ng-href="/admin/contacts/edit.html#?contactid={{address.personId}}">{{address.lastName}}, {{address.firstName}}</a></td>
+                    <td>{{address.relation}}</td>
+                    <td>{{address.street}}</td>
+                    <td>{{address.lineTwo}}</td>
+                    <td>{{address.city}}</td>
+                    <td>{{address.state}}</td>
+                    <td>{{address.postalCode}}</td>
+                    <td>{{address.type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <script>
     $j(document).ready(function(){
         $j('tr[bgcolor="#f6f6f6"]').addClass('headerrow');
@@ -21,3 +35,10 @@
         $j('.box-round').append($j('#additionalAddresses'))
     })
 </script>
+<script src="/scripts/underscore/underscore-min-1.8.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+<script src="/scripts/hsd/app.js"></script>
+<script src="/scripts/hsd/services/studentContactService.js"></script>
+
+<script src="/scripts/hsd/controllers/studentAddressesController.js"></script>
+<script src="/scripts/hsd/filters/studentCurrentRecordFilter.js"></script>

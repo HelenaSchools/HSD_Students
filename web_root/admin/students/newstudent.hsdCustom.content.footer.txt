@@ -1,0 +1,17 @@
+ <script>
+    $j(document).ready(function(){
+        // add styling to the table
+        $j('div.box-round table tr').removeAttr('bgcolor')
+        $j('div.box-round table').addClass('linkDescList');
+     })
+
+    $j(window).load(function(){
+        removeTableRow("Legal");
+    })
+    function removeTableRow(data){
+        // find data
+        $j('div.box-round table td:contains('+data+')')
+            .closest('tr') // find nearest table row
+            .remove(); //delete row
+    }
+</script>
