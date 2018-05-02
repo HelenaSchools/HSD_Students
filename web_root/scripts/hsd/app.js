@@ -32,3 +32,9 @@ var currentRecord = function(input){
         }
         return out;
     }
+
+    var getStudentID=function(url){
+        if(url.includes('frn')){
+            return url.substring(url.indexOf('frn')+7)
+        }
+    }

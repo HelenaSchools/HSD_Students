@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="hsdAngular">
 <!-- start right frame -->
 
 <head>
@@ -10,243 +10,36 @@
 </head>
 
 <body>
-
-
     ~[wc:admin_header_frame_css]
     <!-- breadcrumb start -->
-    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;
-    <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Phone Numbers
-    <!-- breadcrumb end -->~[wc:admin_navigation_frame_css] ~[wc:title_student_begin_css]Phone Numbers~[wc:title_student_end_css]
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;<a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Phone Numbers<!-- breadcrumb end -->
+    ~[wc:admin_navigation_frame_css] 
+    ~[wc:title_student_begin_css]
+        Phone Numbers
+    ~[wc:title_student_end_css]
     <!-- start of content and bounding box -->
-    <div class="box-round">
-        <div class="box-round">
-            
+    <div ng-controller="studentPhonesController">
+        <div class="box-round" ng-repeat="contact in contacts" ng-show="contacts">
+            <h3><a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">{{contact.lastName}}, {{contact.firstName}}</a></h3>
+            <h5 ng-if="contact.relation=='Not Set'">Relationship not set. Click <a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">here</a> to go to the contact page a set it.</h5><h5 ng-if="!(contact.relation=='Not Set')">{{contact.relation}}</h5>
+            <div class="box-round"  ng-show="contact.phones">
+                <div ng-repeat="phone in contact.phones">
+                    <span><span ng-if="!phone.type">Phone type not set</span><span ng-if="phone.type">{{phone.type}}</span>: {{phone.number}} <span ng-if="phone.extension">Ext: {{phone.extension}}</span><span ng-if="phone.preferred"> (preferred)</span></span>
+                </div>
+            </div>
         </div>
-
-        <table border="0" cellpadding="4" cellspacing="0">
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Home phone</td>
-                <td> ~(home_phone)</td>
-            </tr>
-            <tr>
-                <td class="bold">Father (last, first)</td>
-                <td>~(father)</td>
-            </tr>
-            <tr>
-                <td class="bold">Father's Day Phone</td>
-                <td>
-                    <input type="text" name="[01]fatherdayphone" value="" size="13">
-                    <b>Ext</b>
-                    <input type="text" name="[01]fatherdayphone_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]fatherdayphone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold">Father's Home Phone</td>
-                <td>
-                    <input type="text" name="[01]Father_home_phone" value="" size="13">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]fatherhomephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold">Father's Alternate Phone</td>
-                <td>
-                    <input type="text" name="[01]Father_alternate_phone" value="" size="13">&nbsp
-                    <b>Ext</b>&nbsp
-                    <input type "text" name="[01]father_alternate_phone_ext" value="" size="6">&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]fatheralternatephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Mother (last, first)</td>
-                <td>~(mother)</td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Mother's Day Phone</td>
-                <td>
-                    <input type="text" name="[01]motherdayphone" value="" size="13">
-                    <b>Ext</b>
-                    <input type="text" name="[01]motherdayphone_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]motherdayphone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Mother's Home Phone</td>
-                <td>
-                    <input type="text" name="[01]Mother_home_phone" value="" size="13">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]motherhomephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Mother's Alternate Phone</td>
-                <td>
-                    <input type="text" name="[01]mother_alternate_phone" value="" size="13">&nbsp
-                    <b>Ext</b>&nbsp
-                    <input type "text" name="[01]mother_alternate_phone_ext" value="" size="6">&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]motheralternatephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold">Stepmother's Name</td>
-                <td>~(stepmother)</td>
-            </tr>
-            <tr>
-                <td class="bold">Daytime Phone</td>
-                <td>
-                    <input type="text" name="[01]stepmotherdayphone" value="" size="24">
-                    <b>Extension</b>
-                    <input type="text" name="[01]stepmotherdayphone_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]stepmotherdayphone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold">Alternate Phone</td>
-                <td>
-                    <input type="text" name="[01]stepmother_alternate_phone" value="" size="24">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]stepmotheralternatephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Stepfather's Name</td>
-                <td>~(stepfather)</td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Daytime Phone</td>
-                <td>
-                    <input type="text" name="[01]stepfatherdayphone" value="" size="24">
-                    <b>Extension</b>
-                    <input type="text" name="[01]stepfatherdayphone_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]stepfatherdayphone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Alternate Phone</td>
-                <td>
-                    <input type="text" name="[01]stepfather_alternate_phone" value="" size="24">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]stepmotheralternatephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="bold">Guardian's Name &amp; Info</td>
-            </tr>
-            <tr>
-                <td class="bold">Last, First Middle</td>
-                <td>~(guardian_ln),~(guardian_fn) ~(guardian_mn)</td>
-            </tr>
-            <tr>
-                <td class="bold">Daytime Phone</td>
-                <td>
-                    <input type="text" name="[01]guardiandayphone" value="" size="24">
-                    <b>Extension</b>
-                    <input type="text" name="[01]guardiandayphone_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]guardiandayphone_comment" value="" size="30">
-                </td>
-            </tr>
-            <td class="bold">Alternate Phone</td>
-            <td>
-                <input type="text" name="[01]guardian_alternate_phone" value="" size="24">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <b>Comment</b>&nbsp&nbsp
-                <input type="text" name="[01]guardianalternatephone_comment" value="" size="30">
-            </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td colspan="2" class="bold">Secondary Guardian's Name &amp; Info</td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Last, First Middle</td>
-                <td>~(guardian_ln2), ~(guardian_fn2) ~(guardian_mn2)</td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Daytime Phone</td>
-                <td>
-                    <input type="text" name="[01]guardiandayphone2" value="" size="24">
-                    <b>Extension</b>
-                    <input type="text" name="[01]guardiandayphone2_ext" value="" size="6">&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]guardiandayphone2_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold">Alternate Phone</td>
-                <td>
-                    <input type="text" name="[01]guardian2_alternate_phone" value="" size="24">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <b>Comment</b>&nbsp&nbsp
-                    <input type="text" name="[01]guardianalternatephone_comment" value="" size="30">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold">Emergency Contacts</td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold" rowspan="2">Contact #1</td>
-                <td>Contact Name (last, first)
-                    <br> ~(Emerg_Contact_1)
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td>Phone
-                    <br>
-                    <input name="[01]Emerg_Phone_1" value="" size="15" type="text">&nbsp&nbsp
-                    <input name="[01]Emerg_Phone_1b" value="" size="15" type="text">
-                </td>
-            </tr>
-            <tr>
-                <td class="bold" rowspan="2">Contact #2</td>
-                <td>Contact Name (last, first)
-                    <br> ~(Emerg_Contact_2)
-                </td>
-            </tr>
-            <tr>
-                <td>Phone
-                    <br>
-                    <input name="[01]Emerg_Phone_2" value="" size="15" type="text">&nbsp&nbsp
-                    <input name="[01]Emerg_Phone_2b" value="" size="15" type="text">
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td class="bold" rowspan="2">Contact #3</td>
-                <td>Contact Name (last, first)
-                    <br> ~(Emerg_Contact_3)
-                </td>
-            </tr>
-            <tr bgcolor="#edf3fe">
-                <td>Phone
-                    <br>
-                    <input name="[01]Emerg_3_Phone" value="" size="15" type="text">&nbsp&nbsp
-                    <input name="[01]Emerg_Phone_3b" value="" size="15" type="text">
-                </td>
-            </tr>
-        </table>
         <br>
-
-        </td>
-        </tr>
-        <tr>
-        </tr>
-        <tr>
-            <td colspan="2" align="right">
-                <input type="hidden" name="frn" value="~(studentfrn)">
-                <input type="hidden" name="ac" value="prim">~[submitbutton]</td>
-            <td>&nbsp;</td>
-        </tr>
-        </table>
-        <br>
+    </div> 
         <!-- end of content of bounding box -->
         ~[wc:admin_footer_frame_css]
-
-
+    </script>
+    <script src="/scripts/underscore/underscore-min-1.8.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+    <script src="/scripts/hsd/app.js"></script>
+    <script src="/scripts/hsd/services/studentContactService.js"></script>
+    
+    <script src="/scripts/hsd/controllers/studentPhonesController.js"></script>
+    <script src="/scripts/hsd/filters/studentCurrentRecordFilter.js"></script>
 </body>
-
 </html>
 <!-- end right frame -->

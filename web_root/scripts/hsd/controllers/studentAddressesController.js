@@ -2,11 +2,7 @@
     hsdAngular.controller('studentAddressesController',
     ['$scope','$http','studentContactService',
         function($scope,$http,service){
-            var getStudentID=function(url){
-                if(url.includes('frn')){
-                    return url.substring(url.indexOf('frn')+7)
-                }
-            }
+            
             var studentId=getStudentID(document.URL);
             $scope.showAllAddresses=false;
 
