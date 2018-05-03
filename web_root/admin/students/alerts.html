@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+
+<head>
+    <title>Alerts</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+
+    <form action="/admin/changesrecorded.white.html" method="POST">
+        ~[wc:admin_header_frame_css]
+        <!-- breadcrumb start -->
+        <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;
+        <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Alerts
+        <!-- breadcrumb end -->~[wc:admin_navigation_frame_css] ~[wc:title_student_begin_css]Alerts~[wc:title_student_end_css]
+
+        <!-- start of content and bounding box -->
+        <div class="box-round">
+
+            <table border="0" cellspacing="0" cellpadding="4" align="center">
+                ~[f.table_info;table=Teachers;fn=sel;dothisfor=ALL;condfield1=Id;condfieldtype1=INT;comparator1=.eq.;condval1=~[x:userid]]
+                ~[if.~(relgroupname)=Nurses]
+                <tr bgcolor="#edf3fe">
+                    <td class="bold">Medical Alert</td>
+                    <td colspan="2">
+                        <textarea name="[01]Alert_Medical" rows="8" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">Alert Expires (Date)</td>
+                    <td colspan="2">
+                        <input name="[01]Alert_MedicalExpires" value="" size="10" onchange="checkDates('~(JSFieldParam;[01]Alert_MedicalExpires)');"
+                            type="text"> (0/0/0 to never expire)</td>
+                </tr>[/if]
+                <tr bgcolor="#edf3fe">
+                    <td class="bold">Discipline Alert</td>
+                    <td colspan="2">
+                        <textarea name="[01]Alert_Discipline" rows="8" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">Alert Expires (Date)</td>
+                    <td colspan="2">
+                        <input type="text" name="[01]Alert_DisciplineExpires" value="" size="10" onChange="checkDates('~(JSFieldParam;[01]Alert_DisciplineExpires)');"> (0/0/0 to never expire)</td>
+                </tr>
+                <tr bgcolor="#edf3fe">
+                    <td class="bold">Guardian Alert</td>
+                    <td colspan="2">
+                        <textarea name="[01]Alert_Guardian" rows="4" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">Alert Expires (Date)</td>
+                    <td colspan="2">
+                        <input type="text" name="[01]Alert_GuardianExpires" value="" size="10" onChange="checkDates('~(JSFieldParam;[01]Alert_GuardianExpires)');"> (0/0/0 to never expire)</td>
+                </tr>
+                <tr bgcolor="#edf3fe">
+                    <td class="bold">Other Alert</td>
+                    <td colspan="3">
+                        <textarea name="[01]Alert_Other" rows="4" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">Alert Expires (Date)</td>
+                    <td colspan="3">
+                        <input type="text" name="[01]Alert_OtherExpires" value="" size="10" onChange="checkDates('~(JSFieldParam;[01]Alert_OtherExpires)');"> (0/0/0 to never expire)</td>
+                </tr>
+            </table>
+            <br>
+            </td>
+            <td width="25" background="/images/bond_box_right_edge.gif">
+                <img src="/images/spacer.gif" width="25" height="1">
+            </td>
+            </tr>
+            <div class="button-row">
+                <input type="hidden" name="ac" value="prim">~[submitbutton]</div>
+            <br>
+            <!-- end of content of bounding box -->
+
+            ~[wc:admin_footer_frame_css]
+    </form>
+
+</body>
+
+</html>
+<!-- end right frame -->
