@@ -9,9 +9,20 @@
             
             $scope.contacts=service.studentContactData(studentId);
             //$scope.contactAddresses=service.getContactAddresses(studentId);
-            service.getContactAddresses(studentId).then(function(addresses){
+            service.getContactCurrentInfo(studentId).then(function(contacts){
+                addresses=[];
+                for(var i=0;i<contacts.length;i++){
+                    if(contacts[i].addresses.length>0){
+                        for(var i=0;i<contacts[i].addresses.length;i++){
+                            addresses.push(contacts[i].addresses[i])
+                        }
+                    }
+                }
                 console.log(addresses);
-                $scope.addresses=addresses;//currentRecord(addresses);
+                if(addresses.length>0)
+                {
+                    $scope.addresses=addresses;
+                }
                 console.log($scope.addresses);
                 
             })
