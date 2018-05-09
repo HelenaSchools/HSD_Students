@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="hsdAngular">
+<!-- start right frame -->
+
+<head>
+    <title>Phone Numbers</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+    ~[wc:admin_header_frame_css]
+    <!-- breadcrumb start -->
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;<a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Phone Numbers<!-- breadcrumb end -->
+    ~[wc:admin_navigation_frame_css] 
+    ~[wc:title_student_begin_css]
+        Phone Numbers
+    ~[wc:title_student_end_css]
+    <!-- start of content and bounding box -->
+    <div ng-controller="studentPhonesController">
+        <div class="box-round" ng-repeat="contact in contacts" ng-show="contacts">
+            <h3><a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">{{contact.lastName}}, {{contact.firstName}}</a></h3>
+            <h5 ng-if="contact.relation=='Not Set'">Relationship not set. Click <a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">here</a> to go to the contact page a set it.</h5><h5 ng-if="!(contact.relation=='Not Set')">{{contact.relation}}</h5>
+            <div ng-show="contact.phones">
+                <div ng-repeat="phone in contact.phones">
+                    <span><span ng-if="!phone.type">Phone type not set</span><span ng-if="phone.type">{{phone.type}}</span>: {{phone.number}} <span ng-if="phone.extension">Ext: {{phone.extension}}</span><span ng-if="phone.preferred"> (preferred)</span></span>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div> 
+        <!-- end of content of bounding box -->
+        ~[wc:admin_footer_frame_css]
+    </script>
+    <script src="/scripts/underscore/underscore-min-1.8.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+    <script src="/scripts/hsd/app.js"></script>
+    <script src="/scripts/hsd/services/studentContactService.js"></script>
+    
+    <script src="/scripts/hsd/controllers/studentPhonesController.js"></script>
+    <script src="/scripts/hsd/filters/studentCurrentRecordFilter.js"></script>
+</body>
+</html>
+<!-- end right frame -->

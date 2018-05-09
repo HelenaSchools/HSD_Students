@@ -3,7 +3,7 @@
 <!-- start right frame -->
 
 <head>
-    <title>Phone Numbers</title>
+    <title>Contacts</title>
     ~[wc:commonscripts]
     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
     <link href="/images/css/print.css" rel="stylesheet" media="print">
@@ -13,13 +13,13 @@
 <body>
     ~[wc:admin_header_frame_css]
     <!-- breadcrumb start -->
-    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;<a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Phone Numbers<!-- breadcrumb end -->
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt;<a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Contacts<!-- breadcrumb end -->
     ~[wc:admin_navigation_frame_css] 
     ~[wc:title_student_begin_css]
         Phone Numbers
     ~[wc:title_student_end_css]
     <!-- start of content and bounding box -->
-    <div ng-controller="studentPhonesController">
+    <div ng-controller="studentContactsController">
         <div class="row">
             <div class="box-round col-sm-6 col-md-4" ng-repeat="contact in contacts" ng-show="contacts">
                 <div class="row">
@@ -73,7 +73,7 @@
     <script src="/scripts/hsd/app.js"></script>
     <script src="/scripts/hsd/services/studentContactService.js"></script>
     
-    <script src="/scripts/hsd/controllers/studentPhonesController.js"></script>
+    <script src="/scripts/hsd/controllers/studentContactsController.js"></script>
     <script src="/scripts/hsd/filters/studentCurrentRecordFilter.js"></script>
 </body>
 </html>
