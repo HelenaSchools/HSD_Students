@@ -1,8 +1,65 @@
+<table id="hsdCustomContent">
+    
+    <tr id="previousNames">
+        <td class="bold">Previous Names</td>
+        <td colspan="2"><textarea name="[01]student_alias" rows="3" cols="53"></textarea></td>
+    </tr>
+    <td id="areaSelector">
+            <select name="[01]area" id="selectorArea">
+                <option value=""></option>
+                <option value="BRO">Broadwater</option>
+                <option value="BRY">Bryant</option>
+                <option value="CEN">Central</option>
+                <option value="4GS">Four Georgians</option>
+                <option value="HAW">Hawthorne</option>
+                <option value="JEF">Jefferson</option>
+                <option value="JIM">Jim Darcy</option>
+                <option value="KES">Kessler</option>
+                <option value="ROS">Rossiter</option>
+                <option value="SMI">Smith</option>
+                <option value="WRN">Warren</option>
+                <option value="CRA">CRA</option>
+                <option value="HMS">HMS</option>
+                <option value="CHS">CHS</option>
+                <option value="HHS">HHS</option>
+                <option value="PAL">PAL</option>
+                <option value="LIN">Lincoln</option>
+                <option value="ICH">Intermountain</option>
+                <option value="RAY">Ray Bjork</option>
+            </select>
+    </td>
+    <tr id="BoundryExceptionRow">
+        <td class="bold">Boundry Exception Reason</td>
+        <td>
+            <select name="[01]be_reason">
+                <option value=""></option>
+                <option value="NA">Attending Neighborhood School(N/A)</option>
+                <option value="DP">District Program (DP)</option>
+                <option value="O">Overflow (O)</Option>
+                <option value="OPC">Overflow - Parent Choice (OPC)</Option>
+                <option value="PC">Parent Choice (PC)</option>
+                <option value="EX">Explore School (EX)</option>
+                <option value="OD">Out-of-District (OD)</option>
+                <option value="MV">McKinney-Vento(MV))</option>
+            </select>
+        </td>
+    </tr>  
+</table>
+
 <script>
     $j(document).ready(function(){
         // add styling to the table
         $j('div.box-round table tr').removeAttr('bgcolor')
         $j('div.box-round table').addClass('linkDescList');
+        $j('#validateMailingAddress').closest('tr').remove();
+        $j('#fieldArea').closest('td').html($j('#areaSelector').html());
+        $j('#selectorArea').closest('tr').after($j('#hsdCustomContent #BoundryExceptionRow'));
+        $j('table.linkDescList tr:first td:last').append($j('td:contains("Suffix")').next('td').html());
+        $j('td:contains("Suffix")').closest('tr').remove();
+        $j('table.linkDescList tr:first').after($j('#hsdCustomContent #previousNames'))
+
+
+        $j('#hsdCustomContent').remove()
 
     })
 

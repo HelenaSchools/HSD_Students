@@ -1,0 +1,22 @@
+<style>
+    .psDialog.ui-dialog-content, #psDialog {overflow-y: scroll; max-height:500px !important;}
+    </style>
+    <table id="hiddentable" style="display:none">
+    <tr id="statecourserow"><td class="bold"> State Course Number</td><td><input type="text" name="[storedgrades.U_storedgrades_extension]statecoursenumber" value="" size="10" maxlength="11" id="statecourse_number_input"><a id="courseDialog" class="dialogM" href='#' onclick="javascript:call_statepage()"><img src="/images/img/icon-magnify.png" title="Lookup Course Number" alt="Lookup"></a></td></tr></table>
+    
+    <script>
+      $j('#coursenamevar').closest('tr').after($j('#statecourserow'));
+      
+    function call_statepage() {
+      rec='statecourse_number_input';
+      crsnum= $j('#statecourse_number_input').val();
+      crs=$j('#coursenamevar').val();
+      grd=$j('#grade_level_input').val();
+      pageLoad="/admin/students/StateCourseNumbers.html?rec=statecourse_number_input&crsnum="+crsnum+"&crs="+crs+"&schl=~([31]schoolname)&grd="+grd;
+     // alert(pageLoad);
+      $j('#courseDialog').attr('href',pageLoad);
+     //$j('href',options.dialogM).val(pageLoad);
+    };
+    </script>
+    
+    
