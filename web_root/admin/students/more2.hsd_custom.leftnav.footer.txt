@@ -14,17 +14,17 @@
 <div id="hsdInsertedContent" style="display:none">
 	<div id="phoneNumbers">
 		<ul>
-			<li><a href="phonenumbers.html?frn=~(studentfrn)">&nbsp;Phone Numbers</a></li>
+			<li><a href="phonenumbers.html?frn=~(studentfrn)">Phone Numbers</a></li>
 		</ul>
 	</div>
 	<div id="customContact">
 		<ul>
-			<li><a href="contacts2.html?frn=~(studentfrn)">&nbsp;Contacts (custom)</a></li>
+			<li><a href="contacts2.html?frn=~(studentfrn)">Contacts (custom)</a></li>
 		</ul>
 	</div>
 	<div id="healthConcerns">
 		<ul>
-			<li><a href="healthConcerns.html?frn=~(studentfrn)">&nbsp;Health Concerns</a></li>
+			<li><a href="healthConcerns.html?frn=~(studentfrn)">Health Concerns</a></li>
 		</ul>
 	</div>
 </div>
