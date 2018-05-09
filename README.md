@@ -17,8 +17,9 @@
         Health concerns page with custom table call
     Updated more2.hsd_custom.leftnav.footer.txt
         More links, better organization
-
-## Version 0.4.00
     Added lunch.hsdStudetnCustom.content.footer.txt
         Restricts lunch status to valid statuses in district
+
+## Version 0.4.00
+    Added misc.hsdStudentCustom.content.footer.txt
         

@@ -1,0 +1,45 @@
+<table id="hsdCustomContent">
+    <tr id="fxRow">
+        <td class="bold">Foreign Exchange</td>
+        <td>
+            <input type="checkbox" name="[Students]MT_ForeignExchange" value="1" id="MT_ForeignExchange" onclick="validateMutualyExclusive('MT_ForeignExchange', 'MT_Immigrant')">
+        </td>
+        <td class="bold">No Intention to Graduate</td>
+        <td>
+            <input type="checkbox" name="[01]grad_nointent" value="1">
+        </td>
+    </tr>
+    <tr id="excludeAnb">
+        <td class="bold">Exclude From ANB</td>
+        <td>
+            <select name="[01]exclude_ANB">
+                <option value=""></option>
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+
+<script>
+    $j('table').addClass('linkDescList');
+    $j('table tr').removeAttr('bgcolor');
+    $j('td:contains("Homeless Code")').closest('tr').remove();
+    $j('td:contains("PHLOTE")').next('td').remove();
+    $j('td:contains("PHLOTE")').remove();
+    $j('td:contains("AFDC")').closest('tr').remove();
+    $j('td:contains("Primary Language Code")').closest('tr').append($j('td:contains("Secondary")').next())
+    $j('td:contains("Primary Language Code")').next().after($j('td:contains("Secondary")'));
+    $j('td:contains("Primary Language Code")').closest('tr').after($j('#hsdCustomContent #fxRow'))
+    $j('td:contains("Exclude From Class Ranking")').before($j('#hsdCustomContent #excludeAnb').html())
+    $j(document).ready(function(){
+        $j('input:checkbox[name*="$"]').each(function(index){
+            if ($j(this).attr('name').indexOf($j(this).prev("input[type=hidden]").attr('name')) > - 1){
+                $j(this).prev("input[type=hidden]").attr('name',$j(this).attr('name'));
+            }
+        })
+    })
+    
+    $j('#hsdCustomContent').empty();
+</script>

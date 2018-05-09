@@ -30,7 +30,7 @@
 <script>
     $j(document).ready(function(){
         $j('tr[bgcolor="#f6f6f6"]').addClass('headerrow');
-        $j('.box-round table').addClass('linkDeskList');
+        $j('.box-round table').addClass('linkDescList');
         $j('table tr').removeAttr('bgcolor');
         $j('.box-round').append($j('#additionalAddresses'))
     })
