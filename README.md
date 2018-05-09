@@ -22,4 +22,6 @@
 
 ## Version 0.4.00
     Added misc.hsdStudentCustom.content.footer.txt
+    Added socialService.html
+        Modified from previous (pre-PowerSchool 12) version to remove duplicated data
         
