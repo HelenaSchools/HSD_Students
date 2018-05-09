@@ -6,15 +6,12 @@
             var studentId=getStudentID(document.URL);
             $scope.showAllAddresses=false;
 
-            
-            $scope.contacts=service.studentContactData(studentId);
-            //$scope.contactAddresses=service.getContactAddresses(studentId);
-            service.getContactCurrentInfo(studentId).then(function(contacts){
+            service.getContactsCurrentInfo(studentId).then(function(contacts){
                 addresses=[];
                 for(var i=0;i<contacts.length;i++){
                     if(contacts[i].addresses.length>0){
-                        for(var i=0;i<contacts[i].addresses.length;i++){
-                            addresses.push(contacts[i].addresses[i])
+                        for(var j=0;j<contacts[i].addresses.length;j++){
+                            addresses.push(new contactAddress(contacts[i],contacts[i].addresses[j]))
                         }
                     }
                 }
@@ -29,6 +26,16 @@
         }
     ]);
     
+    var contactAddress= function(contact, address){
+        this.firstName=contact.firstName,
+        this.lastName=contact.lastName,
+        this.relation=contact.relation,
+        this.street=address.street,
+        this.lineTwo=address.lineTwo,
+        this.city=address.city,
+        this.postalCode=address.postalCode,
+        this.type=address.type
+    }
     
 })()
 

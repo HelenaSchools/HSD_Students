@@ -1,4 +1,16 @@
 # HSD Student screen customizations
-## Version 0.0.
+## Version 0.1.00
     Added Addresses.hsd_custom.content.footer.txt
-        Provides functionality for Contact manager address to appear in the addresses screen. 
+        Provides functionality for Contact Manager address to appear in the addresses screen. 
+
+## Version 0.2.00
+    Added phonenumbers.html
+        Consolodates phone numbers for Contact Manger inton one page. 
+
+## Version 0.3.00
+    Added generaldemographics.hsdStudentCustom.content.footer.txt
+        Updated to match current screen
+        Updated to remove obsoleted fields
+    Added contacts2.html
+        Dynamic, comprehensive view for ALL contact info
+    
