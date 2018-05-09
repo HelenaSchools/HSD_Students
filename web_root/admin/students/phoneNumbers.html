@@ -7,6 +7,7 @@
     ~[wc:commonscripts]
     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
     <link href="/images/css/print.css" rel="stylesheet" media="print">
+    <link href="/images/css/customStyles.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
         <div class="box-round" ng-repeat="contact in contacts" ng-show="contacts">
             <h3><a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">{{contact.lastName}}, {{contact.firstName}}</a></h3>
             <h5 ng-if="contact.relation=='Not Set'">Relationship not set. Click <a ng-href="/admin/contacts/edit.html#?contactid={{contact.personId}}">here</a> to go to the contact page a set it.</h5><h5 ng-if="!(contact.relation=='Not Set')">{{contact.relation}}</h5>
-            <div ng-show="contact.phones">
+            <div class="no-border-box" ng-show="contact.phones">
                 <div ng-repeat="phone in contact.phones">
                     <span><span ng-if="!phone.type">Phone type not set</span><span ng-if="phone.type">{{phone.type}}</span>: {{phone.number}} <span ng-if="phone.extension">Ext: {{phone.extension}}</span><span ng-if="phone.preferred"> (preferred)</span></span>
                 </div>
@@ -38,7 +39,7 @@
     <script src="/scripts/hsd/app.js"></script>
     <script src="/scripts/hsd/services/studentContactService.js"></script>
     
-    <script src="/scripts/hsd/controllers/studentPhonesController.js"></script>
+    <script src="/scripts/hsd/controllers/studentPhoneController.js"></script>
     <script src="/scripts/hsd/filters/studentCurrentRecordFilter.js"></script>
 </body>
 </html>

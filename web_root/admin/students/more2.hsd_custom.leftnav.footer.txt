@@ -1,17 +1,30 @@
 <script>
 	$j(document).ready(function(){
-		var newUl = $j('#phoneNumbers ul').html();
-		$j('#std_information :nth-child(12)').after(newUl);
-		$j('#insertedContent').empty();
+		var phoneUl = $j('#hsdInsertedContent #phoneNumbers ul').html();
+		var contactUl=$j('#hsdInsertedContent #customContact ul').html();
+		var healthUl=$j('#hsdInsertedContent #healthConcerns ul').html();
+		$j('#std_information :nth-child(12)').closest('li').after(phoneUl);
+		$j('#std_information a:contains("Health")').closest('li').after(healthUl);
+		$j('#std_information a:contains("Contact")').closest('li').after(contactUl);
+		$j('#hsdInsertedContent').empty();
 	});
 </script>
 
 
 <div id="hsdInsertedContent" style="display:none">
 	<div id="phoneNumbers">
-           <ul>
-		~[if.~(studentscreenaccess;parentsguardian.html)=1]<a href="phonenumbers.html?frn=~(studentfrn)">&nbsp;Phone Numbers</a><br>[/if]
-
-           </ul>
+		<ul>
+			<li><a href="phonenumbers.html?frn=~(studentfrn)">&nbsp;Phone Numbers</a></li>
+		</ul>
+	</div>
+	<div id="customContact">
+		<ul>
+			<li><a href="contacts2.html?frn=~(studentfrn)">&nbsp;Contacts (custom)</a></li>
+		</ul>
+	</div>
+	<div id="healthConcerns">
+		<ul>
+			<li><a href="healthConcerns.html?frn=~(studentfrn)">&nbsp;Health Concerns</a></li>
+		</ul>
 	</div>
 </div>

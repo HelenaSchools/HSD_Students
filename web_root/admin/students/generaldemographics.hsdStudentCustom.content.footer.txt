@@ -1,5 +1,4 @@
 <table id="hsdCustomContent">
-    
     <tr id="previousNames">
         <td class="bold">Previous Names</td>
         <td colspan="2"><textarea name="[01]student_alias" rows="3" cols="53"></textarea></td>
@@ -43,28 +42,40 @@
                 <option value="MV">McKinney-Vento(MV))</option>
             </select>
         </td>
-    </tr>  
+    </tr>
+    <tr class="headerrow" id="demoHeader">
+        <td colspan="2" class="bold">Demographic Data</td>          
+    </tr>
 </table>
 
 <script>
     $j(document).ready(function(){
-        // add styling to the table
-        $j('div.box-round table tr').removeAttr('bgcolor')
-        $j('div.box-round table').addClass('linkDescList');
+        $j('#validateMailingAddress').closest('tr').prev().remove();
         $j('#validateMailingAddress').closest('tr').remove();
         $j('#fieldArea').closest('td').html($j('#areaSelector').html());
         $j('#selectorArea').closest('tr').after($j('#hsdCustomContent #BoundryExceptionRow'));
-        $j('table.linkDescList tr:first td:last').append($j('td:contains("Suffix")').next('td').html());
-        $j('td:contains("Suffix")').closest('tr').remove();
-        $j('table.linkDescList tr:first').after($j('#hsdCustomContent #previousNames'))
-
-
+        $j('input#lastName').closest('tr').after($j('#hsdCustomContent #previousNames'))
+        $j('td:contains("Home phone")').closest('tr').before($j('#hsdCustomContent #demoHeader'));
+        $j('td:contains("Father")').closest('tr').remove();
+        $j('td:contains("Mother")').closest('tr').remove();
+        $j('td:contains("Guardian")').closest('tr').remove();
+        $j('td:contains("SSN")').closest('tr').remove();
+        $j('td:contains("Student Number")').closest('tr').remove();
+        $j('td:contains("Montana State Information")').closest('tr').addClass('headerrow');
+        $j('td:contains("Previous Student ID")').closest('tr').remove();
+        $j('td:contains("DOB")').closest('tr').after($j('td:contains("Graduation Year")').closest('tr'));
+        $j('td:contains("DOB")').closest('tr').after($j('td:contains("Grade Level")').closest('tr'));
+        $j('td:contains("DOB")').closest('tr').after($j('td:contains("Gender")').closest('tr'));
+        $j('label:contains("What")').remove();
         $j('#hsdCustomContent').remove()
-
+        
     })
 
     $j(window).load(function(){
         removeTableRow("Legal");
+        $j('input#middleName').after($j('td:contains("Suffix")').next('td').html());
+        $j('td:contains("Suffix")').closest('tr').remove();
+
     })
 
     function removeTableRow(data){

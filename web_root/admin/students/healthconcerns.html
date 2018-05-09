@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+<head>
+     <title>Health Concerns</title>
+     ~[wc:commonscripts]
+     <script language="JavaScript" src="/scripts/tlistCustomization.js"
+     type="text/javascript"></script>
+     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+     <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+<body>
+<form action="/admin/changesrecorded.white.html" method="POST">
+~[wc:admin_header_frame_css]<!-- breadcrumb start --><a href="/admin/home.html"
+target="_top">Start Page</a> > <a href="home.html?selectstudent=nosearch"
+target="_top">Student Selection</a> > Student Health Concerns<!-- breadcrumb end -->~[wc:admin_navigation_frame_css]
+
+
+~[wc:title_student_begin_css]Student Health Concerns~[wc:title_student_end_css]
+<!-- start of content and bounding box -->
+<div class="box-round">
+~[tlist_child:Students.U_STUDENTS_EXTENSION.U_HEALTH_CONCERNS;displaycols:PrimaryConcern,SubConcern,StartDate,EndDate,Notes;fieldNames:Primary Concern,Sub Concern,Start Date,End Date,Notes;type:html]
+     <script type="text/javascript">
+         var PConcern = {};
+         PConcern['']='';
+         PConcern['ADDADHD']='ADD/ADHD';
+         PConcern['Allergies']='Allergies';
+         PConcern['Asthma']='Asthma';
+         PConcern['Autism']='Autism Spectrum Disorder';
+         PConcern['Auto-Immune Condition']='Auto-Immune Condition';
+         PConcern['Blood Disorders']='Blood Disorders';
+         PConcern['Breathing Disorders']='Breathing Disorders';
+         PConcern['Cancer']='Cancer';
+         PConcern['Cardiac Conditions']='Cardiac Conditions';
+         PConcern['Cerebral Palsy']='Cerebral Palsy';
+         PConcern['Chromosome Disorder']='Chromosome Disorder';
+         PConcern['Chronic Fatigue']='Chronic Fatigue';
+         PConcern['Clef Lip Palate']='Clef Lip Palate';
+         PConcern['Concussion']='Concussion';
+         PConcern['Congenital']='Congenital';
+         PConcern['Dermatology']='Dermatology';
+         PConcern['Diabetes']='Diabetes';
+         PConcern['Diagnosed Migraine Headache']='Diagnosed Migraine Headache';
+         PConcern['Encopresis']='Encopresis';
+         PConcern['Endocrine Disorder']='Endocrine Disorder';
+         PConcern['Fetal Alcohol']='Fetal Alcohol';
+         PConcern['Gastrointestinal']='Gastrointestinal';
+         PConcern['Genetic Disorder']='Genetic Disorder';
+         PConcern['Hearing Loss']='Hearing Loss';
+         PConcern['Juvenile Rheumatoid Arthritis']='Juvenile Rheumatoid Arthritis';
+         PConcern['Kidney Disorders']='Kidney Disorders';
+         PConcern['Mental Health (Diagnosed)']='Mental Health (Diagnosed)';
+         PConcern['Muscular Skeletal']='Muscular Skeletal';
+         PConcern['Neurological']='Neurological';
+         PConcern['Oral Health']='Oral Health';
+         PConcern['Orthopedic']='Orthopedic';
+         PConcern['Organ Transplant']='Organ Transplant';
+         PConcern['Parenting Teens']='Parenting Teens';
+         PConcern['Pregnancy']='Pregnancy';
+         PConcern['Post Surgery']='Post Surgery';
+         PConcern['Rare Disorders']='Rare Disorders';
+         PConcern['Seizure']='Seizure';
+         PConcern['Shaken Baby Syndrome']='Shaken Baby Syndrome';
+         PConcern['Sleep Disorders']='Sleep Disorders';
+         PConcern['Urology Disorder']='Urology Disorder'
+         PConcern['Vision Condition']='Vision Condition';
+         tlistText2DropDown('PrimaryConcern',PConcern);
+        var SConcern = {};
+         SConcern['']='';
+         SConcern['Airway']='Airway';
+         SConcern['Actively Being Treatment']='Actively Being Treated';
+         SConcern['Gastrostomy Tube Feeding']='Gastrostomy Tube Feeding';         
+         SConcern['History']='History';
+         SConcern['Nebulizer at School']='Nebulizer at School';
+         SConcern['Oxygen Therapy (As Needed)']='Oxygen Therapy (As Needed)';         
+         SConcern['Requiring Epi-Pen']='Requiring Epi-Pen';         
+         SConcern['Type 1']='Type 1';
+         SConcern['Type 2']='Type 2'; 
+         SConcern['Wheelchair']='Wheelchair';                
+         tlistText2DropDown('SubConcern',SConcern);
+         tlistText2TextArea('Notes',4,50);
+</script>
+<br>
+     <div class="button-row">
+     <input type="hidden" name="ac" value="prim">~[submitbutton]
+     </div>
+</div>
+<br>
+<!-- end of content of bounding box -->
+~[wc:admin_footer_frame_css]
+</form>
+</body>
+</html><!-- end right frame -->

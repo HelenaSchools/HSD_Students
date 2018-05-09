@@ -1,5 +1,5 @@
 (function(){
-    hsdAngular.controller('studentPhonesController',[
+    hsdAngular.controller('studentContactsController',[
         '$scope','$http','studentContactService',
             function($scope,$http,service){
                 var studentId=getStudentID(document.URL);
