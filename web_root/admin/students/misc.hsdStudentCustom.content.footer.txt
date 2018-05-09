@@ -20,7 +20,281 @@
         </td>
     </tr>
 </table>
+<table id="hsdCustomContent2">
+    <tr >
+        <td class="bold">Pre-K Program</td>
+        <td>
+            <select name="[01]prek_attend">
+                <option value=""></option>
+                <option value="N">None (N)</option>
+                <option value="HS">Head Start (HS)</option>
+                <option value="PS">Private Pre-K (PS)</option>
+                <option value="DC">Day Care (DC)</option>
+                <option value="SPK">SPED Pre-K (SPK)</option>
+            </select>
+        </td>
+        <td class="bold">K Transition Profile Received?</td>
+        <td>
+            <input type="checkbox" name="[01]K_profile" value="1">
+        </td>
+    </tr>
+    <tr>
+        <td class="bold">Pre-K Home School</td>
+        <td>
+            <select name="[01]prek_homeschool">
+                <option value=""></option>
+                <option value="655">Broadwater</option>
+                <option value="657">Bryant</option>
+                <option value="654">Central</option>
+                <option value="1582">Four Georgians</option>
+                <option value="656">Hawthorne</option>
+                <option value="651">Jefferson</option>
+                <option value="1461">Jim Darcy</option>
+                <option value="662">Kessler</option>
+                <option value="1478">Rossiter</option>
+                <option value="1477">Smith</option>
+                <option value="663">Warren</option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="bold">Attends XWorks</td>
+        <td>
+            <select name="[01]xworks">
+                <option value=""></option>
+                <option value="Y">Y</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="bold">Title 7/506 Contacted</td>
+        <td>
+            <select name="[01]506_contact">
+                <option value=""></option>
+                <option value="Y">Y</option>
+            </select>
+        </td>
+        <td class="bold">Contact Year</td>
+        <td>
+            <input type="text" name="[01]506_contactyear" value="" size="10">
+        </td>
+    </tr>
+    <tr>
+        <td class="bold">Tribal Enrollment Number</td>
+        <td colspan="3">
+            <input type="text" name="[01]506_tribal" value="" size="40" >
+        </td>
+        <td></td>
+    </tr>
 
+    <tr >
+        <td class="bold">Access to Success</td>
+        <td>
+            <select name="[01]ats_status">
+                <option value=""></option>
+                <option value="Y">Yes</option>
+            </select>
+        </td>
+        <td class="bold">Adult Learning Center</td>
+        <td>
+            <select name="[01]alc_status">
+                <option value=""></option>
+                <option value="Y">Yes</option>
+            </select>
+        </td>
+    </tr>
+    <tr >
+        <td class="bold">Current PAL?</td>
+        <td>
+            <select name="[01]PAL_status">
+                <option></option>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+            </select>
+        </td>
+        <td class="bold">Home High School</td>
+        <td>
+            <select name="[01]PAL_HomeHS">
+                <option></option>
+                <option value="CHS">CHS</option>
+                <option value="HHS">HHS</option>
+            </select>
+        </td>
+    </tr>
+    <tr >
+        <td class="bold">Attended PAL?</td>
+        <td>
+            <select name="[01]PAL_attended">
+                <option></option>
+                <option value="Y">Yes</option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr >
+        <td class="bold">Alternative Program</td>
+        <td>
+            <select name="[01]alt_program">
+                <option></option>
+                <option value="MYC">Montana Youth Challenge (MYC)</option>
+                <option value="JC">Job Corps (JC)</option>
+                <option value="IM">Intermountain (IM)</option>
+                <option value="FCH">Florence-Crittenon (FCH)</option>
+                <option value="MS">Margaret Stuart (MS)</option>
+                <option value="JS">Jan Shaw (JS)</option>
+            </select>
+        </td>
+        <td class="bold">Program Entry Date</td>
+        <td>
+            <input type="text" name="[01]alt_program_date" value="" size="12" >
+        </td>
+    </tr>
+</table>
+<table id="hsdCustomContent3">
+        <tr>
+            <td class="bold">No Military Recruiters</td>
+            <td>
+                <input type="checkbox" name="[01]no_militaryrecruiters" value="1">
+            </td>
+            <td class="bold">No Other Recruiters</td>
+            <td>
+                <input type="checkbox" name="[01]no_other_recruiters" value="1">
+            </td>
+        </tr>
+        <tr class="headerrow">
+            <td colspan="4" class="bold">
+                <b>Parent Permission Form</b>
+            </td>
+        </tr>
+        <tr>
+            <td class="bold">Directory Info</td>
+            <td>
+                <select name="[01]student_directoryinfo">
+                    <option></option>
+                    <option value="No">Deny Release of Info (No)</option>
+                    <option value="NR">No Response From Parents (NR)</option>
+                    <option value="Yes">Can Release Info (Yes)</option>
+                </select>
+            </td>
+            <td class="bold">Publish Photographs</td>
+            <td>
+                <select name="[01]student_publishphotographs">
+                    <option></option>
+                    <option value="No">Deny Release of Info (No)</option>
+                    <option value="NR">No Response From Parents (NR)</option>
+                    <option value="Yes">Can Release Info (Yes)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="bold">Publish School Work</td>
+            <td>
+                <select name="[01]student_publishwork">
+                    <option></option>
+                    <option value="No">Deny Release of Info (No)</option>
+                    <option value="NR">No Response From Parents (NR)</option>
+                    <option value="Yes">Can Release Info (Yes)</option>
+                </select>
+            </td>
+            <td class="bold">Publish Student Name</td>
+            <td>
+                <select name="[01]student_publishname">
+                    <option></option>
+                    <option value="No">Deny Release of Info (No)</option>
+                    <option value="NR">No Response From Parents (NR)</option>
+                    <option value="Yes">Can Release Info (Yes)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="bold">Publish Student Picture</td>
+            <td>
+                <select name="[01]student_publishpicture">
+                    <option></option>
+                    <option value="No">Deny Release of Info (No)</option>
+                    <option value="NR">No Response From Parents (NR)</option>
+                    <option value="Yes">Can Release Info (Yes)</option>
+                </select>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="headerrow">
+            <td colspan="4" class="bold">
+                <b>Attendance Letter Status</b>
+            </td>
+        </tr>
+        <tr >
+            <td class="bold">5 Day Attendance Letter</td>
+            <td>
+                <input type="checkbox" name="[01]5dayletter" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]5dayletter_date" value="" size="12">
+            </td>
+            <td></td>
+        </tr>
+        <tr >
+            <td class="bold">7 Day Attendance Letter</td>
+            <td>
+                <input type="checkbox" name="[01]7dayletter" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]7dayletter_date" value="" size="12">
+            </td>
+            <td></td>
+        </tr>
+        <tr >
+            <td class="bold">10 Day Attendance Letter</td>
+            <td>
+                <input type="checkbox" name="[01]10dayletter" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]10dayletter_date" value="" size="12">
+            </td>
+            <td></td>
+        </tr>
+        <tr >
+            <td class="bold">UNX Letter 1</td>
+            <td>    
+                <input type="checkbox" name="[01]unxletter1" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]unxletter1_date" value="" size="12">
+            </td>
+            <td></td>
+        <tr >
+            <td class="bold">UNX Letter 2</td>
+            <td>
+                <input type="checkbox" name="[01]unxletter2" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]unxletter2_date" value="" size="12">
+            </td>
+            <td></td>
+        <tr >
+            <td class="bold">UNX Letter 3</td>
+            <td>
+                <input type="checkbox" name="[01]unxletter3" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]unxletter3_date" value="" size="12">
+            </td>
+            <td></td>
+        <tr >
+            <td class="bold">UNX Letter 4</td>
+            <td>
+                <input type="checkbox" name="[01]unxletter4" value="1">
+            </td>
+            <td class="bold">Date Sent
+                <input type="text" name="[01]unxletter4_date" value="" size="12">
+            </td>
+            <td></td>
+        </tr>
+</table>
 
 <script>
     $j('table').addClass('linkDescList');
@@ -31,8 +305,12 @@
     $j('td:contains("AFDC")').closest('tr').remove();
     $j('td:contains("Primary Language Code")').closest('tr').append($j('td:contains("Secondary")').next())
     $j('td:contains("Primary Language Code")').next().after($j('td:contains("Secondary")'));
-    $j('td:contains("Primary Language Code")').closest('tr').after($j('#hsdCustomContent #fxRow'))
-    $j('td:contains("Exclude From Class Ranking")').before($j('#hsdCustomContent #excludeAnb').html())
+    $j('td:contains("Primary Language Code")').closest('tr').after($j('#hsdCustomContent #fxRow'));
+    $j('td:contains("Exclude From Class Ranking")').before($j('#hsdCustomContent #excludeAnb').html());
+    $j('td:contains("Exclude From Class Ranking")').closest('tr').after($j('#hsdCustomContent2').html());
+    $j('td:contains("Fee Exemption Status")').prev().remove();
+    $j('td:contains("Fee Exemption Status")').closest('tr').after($j('#hsdCustomContnt #hsdCustomContent3').html());
+    $j('td:contains("Other Alert")').closest('tr').addClass('headerrow');
     $j(document).ready(function(){
         $j('input:checkbox[name*="$"]').each(function(index){
             if ($j(this).attr('name').indexOf($j(this).prev("input[type=hidden]").attr('name')) > - 1){
@@ -41,5 +319,7 @@
         })
     })
     
-    $j('#hsdCustomContent').empty();
+    $j('#hsdCustomContent').remove();
+    $j('#hsdCustomContent2').remove();
+    $j('#hsdCustomContent3').remove();
 </script>
