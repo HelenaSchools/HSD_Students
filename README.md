@@ -24,4 +24,12 @@
     Added misc.hsdStudentCustom.content.footer.txt
     Added socialService.html
         Modified from previous (pre-PowerSchool 12) version to remove duplicated data
+
+## Version 0.5.00
+    Added fee functionality
+        Added fees2.html
+        Added transactionlist2.html
+        Updated more2.hsd_custom.leftnav.footer.txt to point fees to fees2.html
+        
+
         
