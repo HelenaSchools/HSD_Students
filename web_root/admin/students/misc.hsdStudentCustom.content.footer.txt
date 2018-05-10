@@ -307,10 +307,11 @@
     $j('td:contains("Primary Language Code")').next().after($j('td:contains("Secondary")'));
     $j('td:contains("Primary Language Code")').closest('tr').after($j('#hsdCustomContent #fxRow'));
     $j('td:contains("Exclude From Class Ranking")').before($j('#hsdCustomContent #excludeAnb').html());
-    $j('td:contains("Exclude From Class Ranking")').closest('tr').after($j('#hsdCustomContent2').html());
+    $j('td:contains("Exclude From Class Ranking")').closest('tr').after($j('#hsdCustomContent2 tbody').html());
     $j('td:contains("Fee Exemption Status")').prev().remove();
-    $j('td:contains("Fee Exemption Status")').closest('tr').after($j('#hsdCustomContnt #hsdCustomContent3').html());
+    $j('td:contains("Fee Exemption Status")').closest('tr').after($j('#hsdCustomContent3 tbody').html());
     $j('td:contains("Other Alert")').closest('tr').addClass('headerrow');
+    $j('td:contains("Other Alert Text")').closest('tr').removeClass('headerrow');
     $j(document).ready(function(){
         $j('input:checkbox[name*="$"]').each(function(index){
             if ($j(this).attr('name').indexOf($j(this).prev("input[type=hidden]").attr('name')) > - 1){

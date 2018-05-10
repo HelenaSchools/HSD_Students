@@ -3,9 +3,11 @@
 		var phoneUl = $j('#hsdInsertedContent #phoneNumbers ul').html();
 		var contactUl=$j('#hsdInsertedContent #customContact ul').html();
 		var healthUl=$j('#hsdInsertedContent #healthConcerns ul').html();
+		var socialServiceUl=$j('#hsdInsertedContent #socialService ul').html();
 		$j('#std_information :nth-child(12)').closest('li').after(phoneUl);
 		$j('#std_information a:contains("Health")').closest('li').after(healthUl);
 		$j('#std_information a:contains("Contact")').closest('li').after(contactUl);
+		$j('#std_information a:contains("Photo")').closest('li').after(socialServiceUl);
 		$j('#hsdInsertedContent').empty();
 	});
 </script>
@@ -25,6 +27,11 @@
 	<div id="healthConcerns">
 		<ul>
 			<li><a href="healthConcerns.html?frn=~(studentfrn)">Health Concerns</a></li>
+		</ul>
+	</div>
+	<div id="socialService">
+		<ul>
+			<li><a href="socialService.html?frn=~(studentfrn)">Social Service</a></li>
 		</ul>
 	</div>
 </div>
