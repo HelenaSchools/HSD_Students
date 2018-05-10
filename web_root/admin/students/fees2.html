@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+<head>
+    <title>~[text:psx.html.admin_students.fees.fee_transactions]</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+
+    <form action="fees.html" method="POST">
+        ~[wc:admin_header_frame_css]<!-- breadcrumb start --><a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.fees.start_page]</a> &gt; <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.fees.student_selection]</a> &gt;~[text:psx.html.admin_students.fees.fee_transactions1]<!-- breadcrumb end -->~[wc:admin_navigation_frame_css] 
+        
+        ~[wc:title_student_begin_css]~[text:psx.html.admin_students.fees.fee_transactions2]~[wc:title_student_end_css]
+
+        <!-- start of content and bounding box -->
+        ~[if.gpv.changesSaved=true]
+            <div class="feedback-confirm">
+                ~[text:psx.common.changes_recorded]
+            </div>
+        [/if]
+        <div class="box-round overflow">
+
+            <table border="0" cellspacing="0" cellpadding="4">
+                <tr>
+                    <td colspan="9"><select name="new_fee_type" onChange="this.form.action='newfee.html?frn=~(frn)';this.form.submit()"><option selected value="">~[text]psx.html.admin_students.fees.create_new_fee,param:~(f.table_info;table=Fee_Type;fn=sel;dothisfor=ALL;*schoolID=~(v.curschoolid);condfield1=Fee_Category_Name;condfieldtype1=TEXT;comparator1=.ne.;condval1=School,Course,),param:~(f.HTML_Popup_List;option=custom;name=fee_type;table=fee_type;namefld=Name;valuefld=ID;parentfld=fee_category_name;sortfld=Name;insertblank=0;insertsel=0)[/text]</select></td>
+                    <td colspan="2" class="right">~[text:psx.html.admin_students.fees.balance]~(f.table_info;table=Fee_Balance;*studentid=~(curstudid);*yearID=~(v.curyearid);fn=value;field=Balance;fieldtype=NUM;format=currency)</td>
+                    <td colspan="2" class="right"><a href="refunddist.html?studentid=~([01]ID)">~[text:psx.html.admin_students.fees.refund]</a></td>
+                </tr>
+                <tr bgcolor="#f6f6f6">
+                    <td class="bold">~[text:psx.html.admin_students.fees.date]</td>
+                    <td class="bold">Year</td>
+                    <td class="bold">School</td>
+                    <td class="bold">~[text:psx.html.admin_students.fees.course]</td>
+                    <td class="bold">~[text:psx.html.admin_students.fees.fee_type]</td>
+                    <td class="bold">~[text:psx.html.admin_students.fees.priority]</td>
+                    <td class="bold">~[text:psx.html.admin_students.fees.description]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.charged]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.adjust]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.fee]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.paid]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.balance1]</td>
+                    <td class="bold right">~[text:psx.html.admin_students.fees.transaction]</td>
+                </tr>
+                ~(fee_runningbal_init)
+                <tr bgcolor="#edf3fe">~[tlist;Fee;studentid=~(curstudid);alternatecolor;sortcmd;DateTime,&gt;]
+                    <td><a href="editfee.html?frn=~(frn)">~(date)</a></td>
+                    <td>~(f.add;~(yearid);1990)-~(f.add;~(yearid);1991)</td>
+                    <td>~([39]abbreviation)</td>
+                    <td>~(Course_Number)</td>
+                    <td>~(fee_type_name)</td>
+                    <td>~(priority)</td>
+                    <td>~(description)</td>
+                    <td class="right">~(FeeCharged;round=2;format=currency)</td>
+                    <td class="right">~(Adjustment;round=2;format=currency)</td>
+                    <td class="right">~(Fee_Amount;round=2;format=currency)</td>
+                    <td class="right"><a href="transactionslist2.html?feeid=~([146]ID)">~(Fee_Paid;round=2;format=currency)</a></td>
+                    <td class="right">~(fee_runningbal_update)~(Fee_Balance;round=2;format=currency)</td>
+                    <td class="right">~(fee_payment_link)</td>
+                </tr>
+                <tr bgcolor="#edf3fe">
+                    <td colspan="9" class="right">~[text:psx.html.admin_students.fees.totals]</td>
+                    <td class="right">~(fee_runningbal_amount)</td>
+                    <td class="right">~(fee_runningbal_paid)</td>
+                    <td class="right">~(fee_runningbal_bal)</td>
+                    <td class="right"><a href="newpaymentdist.html?studentid=~([01]ID)">~[text:psx.html.admin_students.fees.distribute]</a></td>
+                </tr>
+                <tr>
+                <td colspan="13" class="center"><a href="transactions_all.html?studentid=~(curstudid)">~[text:psx.html.admin_students.fees.all_transactions]</a>&nbsp;&nbsp;&nbsp;<a href="feebalances.html?studentid=~(curstudid)">~[text:psx.html.admin_students.fees.fee_balances]</a></td>
+                </tr>
+                <tr>
+                    <td colspan="11">~[text:psx.html.admin_students.fees.note_credits_are_distributed_across_all_outstanding_fees_bas]</td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="button-row"></div>
+        </div>
+        <br>
+        <!-- end of content of bounding box -->
+
+        ~[wc:admin_footer_frame_css]
+    </form>
+
+</body>
+</html><!-- end right frame -->

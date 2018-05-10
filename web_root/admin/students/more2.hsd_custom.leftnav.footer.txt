@@ -8,6 +8,7 @@
 		$j('#std_information a:contains("Health")').closest('li').after(healthUl);
 		$j('#std_information a:contains("Contact")').closest('li').after(contactUl);
 		$j('#std_information a:contains("Photo")').closest('li').after(socialServiceUl);
+		$j('#std_administration a:contains("Fee Transactions")').attr('href','fees2.html?frn=~(studentfrn)');
 		$j('#hsdInsertedContent').empty();
 	});
 </script>

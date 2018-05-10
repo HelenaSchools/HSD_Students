@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+
+<head>
+    <title>~[text:psx.html.admin_students.transactionslist.transactions]</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+
+    ~[wc:admin_header_frame_css]
+    <!-- breadcrumb start -->
+    <a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.transactionslist.start_page]</a> &gt;
+    <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.transactionslist.student_selection]</a> &gt;
+    <a href="fees.html?frn=~(studentfrn)">~[text:psx.html.admin_students.transactionslist.fee_transactions]</a> &gt;~[text:psx.html.admin_students.transactionslist.transactions1]
+    <!-- breadcrumb end -->~[wc:admin_navigation_frame_css] ~[wc:title_student_begin_css]~[text:psx.html.admin_students.transactionslist.transactions2]~[wc:title_student_end_css]
+
+    <!-- start of content and bounding box -->
+    <div class="box-round">
+
+        <table border="0" cellspacing="0" cellpadding="4">
+            <tr bgcolor="#f6f6f6">
+                <td class="bold">~[text:psx.html.admin_students.transactionslist.date]</td>
+                <td>Year</td>
+                <td>School</td>
+                <td class="bold">~[text:psx.html.admin_students.transactionslist.time]</td>
+                <td class="bold">~[text:psx.html.admin_students.transactionslist.type]</td>
+                <td class="bold" align="right">~[text:psx.html.admin_students.transactionslist.debit]</td>
+                <td class="bold" align="right">~[text:psx.html.admin_students.transactionslist.credit]</td>
+                <td class="bold" align="right">~[text:psx.html.admin_students.transactionslist.balance]</td>
+                <td class="bold">~[text:psx.html.admin_students.transactionslist.payment_method]</td>
+                <td class="bold">~[text:psx.html.admin_students.transactionslist.description]</td>
+            </tr>
+            <tr bgcolor="#edf3fe">~[tlist;Fee_Transaction;FeeId=~[gpv:feeid];alternatecolor;sortcmd;DateTime,&lt;]
+                <td>
+                    <a href="transaction.html?frn=~(frn)&FeeId=~[gpv:feeid]">~(date)</a>
+                </td>
+                <td>~(f.add;~(yearid);1990)-~(f.add;~(yearid);1991)</td>
+                <td>~([39]abbreviation)</td>
+                <td>~(time)</td>
+                <td>~(Transaction_Type)</td>
+                <td align="right">~(Starting_Balance;format=currency)</td>
+                <td align="right">~(Amount;format=currency)</td>
+                <td align="right">~(NetEffect;format=currency)</td>
+                <td>~(Payment_Method)</td>
+                <td>~(description)</td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div class="button-row"></div>
+    </div>
+    <br>
+    <!-- end of content of bounding box -->
+
+    ~[wc:admin_footer_frame_css]
+
+</body>
+
+</html>
+<!-- end right frame -->
