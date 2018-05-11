@@ -1,0 +1,18 @@
+<table width="100%" border="0" cellspacing="1" cellpadding="3" id="hsdContent">
+    <tbody>
+        <tr>
+            <td align="center">
+                <a href="mailto:~[tlist2;teachers]~(email_addr);[/tlist]">Email These Teachers (MS Outlook Users)</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <a href="mailto:~[tlist2;teachers]~(email_addr),[/tlist]">Email These Teachers (Non-Outlook Users)</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $j('table.linkDescList').after($j('#hsdContent'));
+</script>

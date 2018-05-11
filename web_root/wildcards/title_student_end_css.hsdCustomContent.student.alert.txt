@@ -1,0 +1,35 @@
+&nbsp; &nbsp;  <a href="javascript:alertwindow('~[directory]', 'IEP', '~(studentfrn)')"onMouseOver="window.status='IEP Alert'; return true"> 
+        ~([01]alert_iep;if.not.blank.then= <img src="/images/alert_iep.gif" height="24" width="31" alt="IEP Alert" border="0">)
+    </a>
+    &nbsp; &nbsp;<a href="#javascript:alertwindow('~[directory]', 'A-Team', '~(studentfrn)')" onMouseOver="window.status='A-Team Alert'; return true"> 
+        ~([01]alert_ateam;if.not.blank.then= <img src="/images/alert_ateam.png"       height="24" width="31" alt="Assistance Team" border="0">)
+    </a>
+    &nbsp; &nbsp;<a href="#javascript:alertwindow('~[directory]', 'X Works', '~(studentfrn)')"onMouseOver="window.status='XWorks Alert'; return true"> 
+        ~([01]xworks;if.not.blank.then= <img src="/images/alert_xworks.gif"       height="30" width="30" alt="X Works" border="0">)
+    </a>
+</td>
+~[tlist_sql;select case when exists 
+(
+SELECT
+            s.id,
+            to_char(round(sum(ada.attendancevalue)/sum(ada.membershipvalue)*100,2)) ADA
+        FROM students s
+        JOIN schools schl ON schl.school_number = s.schoolid
+        JOIN ps_adaadm_defaults_all ada ON ada.studentid = s.id
+        WHERE
+
+             s.id = ~(curstudid)
+            AND to_date(ada.calendardate)  > to_date('8/01/'||(~(curyearid)+1990), 'mm/dd/yyyy')
+            AND to_date(ada.calendardate) <= to_date(current_date)
+            AND ada.membershipvalue > 0
+
+        GROUP BY s.id
+        HAVING
+            round(sum(ada.attendancevalue)/sum(ada.membershipvalue)*100,2) <= 90
+) 
+then 1 
+else 0 
+end as result 
+from dual]
+~(result;n;if.test=1;then=~[wc:att_alert];else=;)
+[/tlist_sql]

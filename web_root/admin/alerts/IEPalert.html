@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IEP/504 Alert</title>
+        ~[wc:commonscripts]
+        <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+        <link href="/images/css/print.css" rel="stylesheet" media="print">
+    </head>
+
+    <body class="popUp">
+
+        <!-- Start of shaded content table -->
+        <div class="box-round">
+
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="42"><img src="/images/alert_iep.gif" width="42" height="42" alt="" border="0"></td>
+                    <td width="5"><img src="/images/misc_trans.gif" width="5" height="1"></td>
+                    <td width="100%"><span class="header">IEP/504 Alert</span><br>~(studentname)</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr /></td>
+                </tr>
+                    <td colspan="3">~(alert_IEP)<br>&nbsp;<br>Alert Expires: ~[if.~(alert_IEPexpires)=0/0/0]Never[else]~(alert_IEPexpires)[/if]<br>&nbsp;<br></td>
+                </tr>
+            </table>
+            <center><a href="javascript:window.close()">Close</a></center>
+
+        </div>
+        ~[wc:legal_copyright]
+
+    </body>
+</html>

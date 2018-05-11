@@ -30,6 +30,8 @@
         Added fees2.html
         Added transactionlist2.html
         Updated more2.hsd_custom.leftnav.footer.txt to point fees to fees2.html
-        
+
+## Version 0.5.01
+    Added functions.hsdCustomContent.content.footer.txt
 
         

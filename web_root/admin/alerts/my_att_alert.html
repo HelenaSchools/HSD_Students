@@ -1,0 +1,66 @@
+<div class="studentAlert" id="alert-my_att_alert~(studentfrn)">
+    <img class="alertImage" src="/images/att_alert.jpg" />
+    <div class="alertContent">
+        <p class="alertHeader">~(studentname)</p>
+        <p>
+            <table align="center" border=0 cellpadding=2 cellspacing=0 width="100%">
+                <tr>
+                    <td class="bold">PS#</td>
+                    <td class="bold">Absent</td>
+                    <td class="bold">Membership</td>
+                    <td class="bold">% Absent</td>
+                </tr>
+    
+                ~[tlist_sql;
+                    SELECT
+                        s.student_number,
+                        sum(ada.membershipvalue)-sum(ada.attendancevalue) absences,
+                        sum(ada.membershipvalue) membership,
+                        100-to_char(round(sum(ada.attendancevalue)/sum(ada.membershipvalue)*100,2)) || ' %' Absent
+                    FROM students s
+                        JOIN schools schl ON schl.school_number = s.schoolid
+                        JOIN ps_adaadm_defaults_all ada ON ada.studentid = s.id
+                    WHERE s.id=~(curstudid)
+                        AND to_date(ada.calendardate)  > to_date('8/01/'||(~(curyearid)+1990), 'mm/dd/yyyy')
+                        AND to_date(ada.calendardate) <= to_date(current_date)
+                        AND ada.membershipvalue > 0
+                    GROUP BY  s.student_number
+                    HAVING
+                        round(sum(ada.attendancevalue)/sum(ada.membershipvalue)*100,2) <= 90]
+            
+                    <tr bgcolor="#edf3fe">
+                        <td>~(1)</td>
+                        <td><center>~(2)</center></td>
+                        <td><center>~(3)</center></td>
+                        <td><center>~(4)<center></td>
+                    </tr>
+    
+                [/tlist_sql]
+            </table>
+            <center><b>Meeting Attendance Counts</b></center>
+            <table align="center" border=0 cellpadding=2 cellspacing=0 width="100%">
+                <tr>
+                    <td class="bold" colspan="3">Code</td>
+                    <td class="bold">Count</td>
+                </tr>
+                ~[tlist_sql;
+                    SELECT to_char(ac.description), count(*)
+                    FROM attendance att 
+                        INNER JOIN attendance_code ac ON att.attendance_codeid = ac.ID
+                        INNER JOIN cc cc on att.ccid = cc.id
+                        INNER JOIN courses c on UPPER(cc.course_number) = UPPER(c.course_number)
+                        INNER JOIN sections s on abs(cc.sectionid) = s.id
+                        INNER JOIN schools sch on att.schoolid = sch.school_number
+                    WHERE att.studentid = '~(curstudid)'
+                        AND att.yearid = '~(curyearid)' 
+                        AND att.att_mode_code = 'ATT_ModeMeeting'
+                        AND ac.att_code is not null
+                    GROUP BY to_char(ac.description)
+                    ORDER BY to_char(ac.description)
+                    ;alternatecolor]
+                    <tr bgcolor="#edf3fe">
+                        <td colspan="3">~(1)</td>
+                        <td>~(2)</td>
+                    </tr>
+                [/tlist_sql]
+    

@@ -1,0 +1,6 @@
+<script>
+    studentFunctions+={
+        name:'Select Students By Hand',
+        address:'/admin/studentlist/handpickstudents.html'
+    }
+</script>

@@ -1,0 +1,5 @@
+<p style="display: none" id="customStudentHeader">~(studentname) ~([01]suffix) &nbsp; <b>Grade:</b> ~([01]grade_level) &nbsp; <b>District ID:</b> ~([01]student_number) &nbsp; <b>State ID:</b> ~([01]state_studentnumber) &nbsp; <b>DOB:</b> ~([01]dob) &nbsp; &nbsp; ~(studschoolabbr)&nbsp;<b>~(decode;~([01]prek_homeschool);655;Bro;657;Bry;654;Cen;1582;Fou;656;Haw;651;Jef;1461;Jim;662;Kes;1478;Ros;1477;Smi;663;War;&nbsp)</b>&nbsp; &nbsp; ~[enrollmentstatus]</p>
+<script>
+    $j('p#student_detail_header').html($j('p#customStudentHeader').html())
+    $j('p#customStudentHeader').remove();
+</script>

@@ -1,0 +1,3 @@
+<a class="dialogM" title="Chronically Absent Student Alert" href="/admin/alerts/my_att_alert.html?frn=~(studentfrn)">
+<img src="/images/att_alert.jpg" height="20" width="20" border="0" title="This student is chronically absent. Chronic absence is defined as absent 10 percent or more." />
+</a>
