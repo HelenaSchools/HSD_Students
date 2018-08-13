@@ -34,4 +34,9 @@
 ## Version 0.5.01
     Added functions.hsdCustomContent.content.footer.txt
 
+## Version 1.0.0
+    Release version
+
+## Version 1.0.1
+    Bug fix: Add transcript info
         
