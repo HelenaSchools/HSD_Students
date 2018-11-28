@@ -46,6 +46,10 @@
     <tr class="headerrow" id="demoHeader">
         <td colspan="2" class="bold">Demographic Data</td>          
     </tr>
+    <tr id="BirthPlace">
+        <td class="bold">Birthplace</td>
+        <td><input name="[01]birthplace" value="" /></td>
+    </tr>
 </table>
 
 <script>
@@ -66,6 +70,7 @@
         $j('td:contains("DOB")').closest('tr').after($j('td:contains("Graduation Year")').closest('tr'));
         $j('td:contains("DOB")').closest('tr').after($j('td:contains("Grade Level")').closest('tr'));
         $j('td:contains("DOB")').closest('tr').after($j('td:contains("Gender")').closest('tr'));
+        $j('td:contains("DOB")').closest('tr').after($j('#BirthPlace'));
         $j('label:contains("What")').remove();
         $j('#hsdCustomContent').remove()
         

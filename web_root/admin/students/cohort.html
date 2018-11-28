@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+<head>
+<title>Cohort Tracking</title>
+~[wc:commonscripts]
+<link href="/images/css/screen.css" rel="stylesheet" media="screen">
+<link href="/images/css/print.css" rel="stylesheet" media="print">
+</head>
+
+<body>
+
+<form action="/admin/changesrecorded.white.html" method="POST">
+~[wc:admin_header_frame_css]<!-- breadcrumb start --><a href="/admin/home.html" target="_top">~[text:psx.html.admin_students.misc.start_page]</a> &gt; <a href="home.html?selectstudent=nosearch" target="_top">~[text:psx.html.admin_students.misc.student_selection]</a> &gt;Cohort Tracking<!-- breadcrumb end -->~[wc:admin_navigation_frame_css]
+
+~[wc:title_student_begin_css]Cohort Tracking~[wc:title_student_end_css]
+
+<!-- start of content and bounding box -->
+<div class="box-round">
+
+<table border="0" cellspacing="0" cellpadding="4" align="center">
+<tr bgcolor="#edf3fe">
+<td class="bold">Graduation Cohort Year</td>
+<td><input type="text" name="[01]cohort_year" value="" size="10"</td>
+<td class="bold">Grade Entering Cohort</td>
+<td><select name="[01]cohort_grade"><option><option value="9">9<option value="10">10<option value="11">11<option value ="12">12</select></td>
+</tr>
+<tr>
+<td class="bold">Alternative Program</td>
+<td><select name="[01]cohort_altprog"><option><option value="PAL">PAL<option value="ATS">Access to Success<option value="ALC">Adult Learning Center<option value="AHC">Adult High School Completion</select></td>
+<td class="bold">Records Released?</td>
+<td><select name="[01]cohort_recrelease"><option><option value="Y">Yes<option value="N">No</select></td>
+<tr  bgcolor="#edf3fe">
+<td class="bold">Records Release Date</td>
+<td><input type="text" name="[01]cohort_releasedate" value="" size="10"</td>
+<td class="bold">Receiving District</td>
+<td><input type="text" name="[01]cohort_recvdistrict" value="" size="30" maxlength="50"</td>
+</tr>
+<tr>
+<td class="bold">Feeder School</td>
+<td><select name="[01]cohort_feeder"><option><option value="EH">East Helena (EH)<option value="MT">Montana City (MT)<option value="C">Clancy (C)<option value="O">Other (O)</select></td>
+<td class="bold">OPI Dropout Year</td>
+<td><input type="text" name="[01]cohort_dropoutyear" value="" size="10"</td>
+</tr>
+<tr>
+<td class="bold">Elementary Feeder</td>
+<td><select name="[01]elem_feeder"><option><option value="Bro">Bro<option value="Bry">Bry<option value="Cen">Cen<option value="Fou">Fou<option value="Haw">Haw<option value="Jef">Jef<option value="Jim">Jim<option value="Kes">Kes<option value="Ros">Ros<option value="Smi">Smi<option value="War">War</select></td>
+</tr>
+<tr>
+<td class="bold">Notes</td>
+<td colspan="6"><textarea name="[01]cohort_notes" rows="15" cols="60"></textarea></td>
+</tr>
+
+</table>
+<br>
+
+<div class="button-row"><input type="hidden" name="ac" value="prim">~[submitbutton]</div>
+
+<!-- end of content of bounding box -->
+~[wc:admin_footer_frame_css]
+</form>
+
+</body>
+</html><!-- end right frame -->

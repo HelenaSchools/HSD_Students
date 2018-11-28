@@ -39,4 +39,23 @@
 
 ## Version 1.0.1
     Bug fix: Add transcript info
-        
+
+## Version 1.0.2
+    Bug fix: Add alerts
+    Bug fix: alphabetize more2.html lists
+    Bug fix: Restore birthplace
+
+## Version 1.0.21
+    Bug fix: Student birthplace not displaying. 
+
+## Version 1.1.00
+    Removed SocialService.html to add to SPED plugin. 
+
+## Version 1.1.01
+    Bug fix: Graduation date not displaying
+
+## Version 1.2.00
+    Change Lunch Page
+
+## Version 1.2.01
+    Update to include attendance alert

@@ -7,6 +7,7 @@
     &nbsp; &nbsp;<a href="#javascript:alertwindow('~[directory]', 'X Works', '~(studentfrn)')"onMouseOver="window.status='XWorks Alert'; return true"> 
         ~([01]xworks;if.not.blank.then= <img src="/images/alert_xworks.gif"       height="30" width="30" alt="X Works" border="0">)
     </a>
+</td>
 ~[tlist_sql;select case when exists 
 (
 SELECT

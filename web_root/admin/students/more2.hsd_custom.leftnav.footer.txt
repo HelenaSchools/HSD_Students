@@ -3,20 +3,49 @@
 		var phoneUl = $j('#hsdInsertedContent #phoneNumbers ul').html();
 		var contactUl=$j('#hsdInsertedContent #customContact ul').html();
 		var healthUl=$j('#hsdInsertedContent #healthConcerns ul').html();
-		var socialServiceUl=$j('#hsdInsertedContent #socialService ul').html();
+		
 		var transcriptinfoUl=$j('#hsdInsertedContent #transcriptinfo ul').html();
-		$j('#std_information :nth-child(12)').closest('li').after(phoneUl);
-		$j('#std_information a:contains("Health")').closest('li').after(healthUl);
-		$j('#std_information a:contains("Contact")').closest('li').after(contactUl);
-		$j('#std_information a:contains("Photo")').closest('li').after(socialServiceUl);
+		var alertsUl=$j('#hsdInsertedContent #alerts ul').html();
+		var cohortUl=$j('#hsdInsertedContent #cohort ul').html();
+		$j('#std_information').prepend(alertsUl);
+		$j('#std_academics').prepend(cohortUl);
+		$j('#std_information').prepend(phoneUl);
+		$j('#std_information').prepend(healthUl);
+		$j('#std_information').prepend(contactUl);
+		
 		$j('#std_administration a:contains("Fee Transactions")').attr('href','fees2.html?frn=~(studentfrn)');
-		$j('#std_academics').append(transcriptinfoUl);
+		$j('#std_academics').prepend(transcriptinfoUl);
 		$j('#hsdInsertedContent').empty();
+
+		alphabatizeList('std_information');
+		alphabatizeList('std_academics');
+		alphabatizeList('std_administration');
+		function alphabatizeList(listId){
+			var list = $j('#'+listId);
+			var listitems = list.children('li').get();
+			listitems.sort(function(a,b){
+				var upA=$j(a).text().toUpperCase();
+				var upB=$j(b).text().toUpperCase();
+
+				return upA<upB?-1:upA>upB?1:0;
+			})
+			$j.each(listitems, function(idx, itm){list.append(itm);});
+		}
 	});
 </script>
 
 
 <div id="hsdInsertedContent" style="display:none">
+	<div id="cohort">
+		<ul>
+			<li><a href="cohort.html?frn=~(studentfrn)">Cohort Tracking</a></li>
+		</ul>
+	</div>
+	<div id="alerts">
+		<ul>
+			<li><a href="alerts.html?frn=~(studentfrn)">Alerts</a></li>
+		</ul>
+	</div>
 	<div id="phoneNumbers">
 		<ul>
 			<li><a href="phonenumbers.html?frn=~(studentfrn)">Phone Numbers</a></li>
@@ -32,11 +61,7 @@
 			<li><a href="healthConcerns.html?frn=~(studentfrn)">Health Concerns</a></li>
 		</ul>
 	</div>
-	<div id="socialService">
-		<ul>
-			<li><a href="socialService.html?frn=~(studentfrn)">Social Service</a></li>
-		</ul>
-	</div>
+	
 	<div id="transcriptinfo">
 		<ul>
 			<li><a href="transcriptinfo.html?frn=~(studentfrn)">Transcript Info</a></li>

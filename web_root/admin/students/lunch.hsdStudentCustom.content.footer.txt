@@ -2,25 +2,23 @@
     <tr>
         <td>
             <select name="[01]lunch_status" id="customLunch">
-                <option value="N">Not Eligible/Participating (N)</option>
+                <option value="N">Paid (N)</option>
                 <option value="R">Reduced (R)</option>
                 <option value="F">Free (F)</option>
-                <option value="Z">Return to Full Pay from F/R (Z)</option>
             </select>
         </td>
     </tr>
-    <tr id="application">
-        <td class="bold">Name on Application</td>
-        <td>
-            <input type="text" name="[01]Applic_Filed_Name" value="" size="25" />
-        </td>
-    </tr>
+    
 </table>
 
 <script>
     $j('td:contains("Lunch status")').next().html($j('#hsdCustomContent #customLunch'));
-    $j('td:contains("Lunch ID")').closest('tr').before($j('#hsdCustomContent #application'));
+    $j('td:contains("Date Submitted")').html('Status as of date:');
     $j('td:contains("Lunch ID")').closest('tr').remove();
+    $j('td:contains("Date Responded")').closest('tr').remove();
     $j('td:contains("Current balance")').closest('tr').remove();
+    $j('td:contains("Montana State Information")').closest('tr').next('tr').remove();
+    $j('td:contains("Montana State Information")').closest('tr').remove();
+    $j('td:contains("Application #")').closest('tr').remove();
     $j('#hsdCustomContent').empty();
 </script>
