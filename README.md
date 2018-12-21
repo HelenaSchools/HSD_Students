@@ -59,3 +59,10 @@
 
 ## Version 1.2.01
     Update to include attendance alert
+
+## Version 1.2.02
+### TEMPORARY BUG FIX
+    Update to fix Contacts2.html print out 
+
+## Version 1.3.00
+    Update to automatically pick federal ethnicity when the race and ethnicity are selected.

@@ -72,7 +72,61 @@
         $j('td:contains("DOB")').closest('tr').after($j('td:contains("Gender")').closest('tr'));
         $j('td:contains("DOB")').closest('tr').after($j('#BirthPlace'));
         $j('label:contains("What")').remove();
-        $j('#hsdCustomContent').remove()
+        $j('#hsdCustomContent').remove();
+
+
+    //START: Ethnity Scripts
+        var setPrimaryEthinicity=function(ethnicityCode){
+                $j('#primaryethnicity option').each(function(){
+                    if($j(this).val()===ethnicityCode){
+                        $j(this).prop('selected',true);
+                    }else{
+                        $j(this).prop('selected',false);
+                    }
+                })
+            }
+            
+            var checkEthnicity = function(){
+                var races=[];
+
+                var countRaces = function (){
+                    $j('input[name="race"]').each(
+                        function(){
+                            if($j(this).prop('checked')){
+                                races.push($j(this).val());
+                            }
+                        }
+                    )
+                }
+                
+                countRaces();
+                if($j('#radioFedEthYes').prop('checked')){
+                    setPrimaryEthinicity('03')
+                }else if($j('#radioFedEthNo').prop('checked')){
+                    if(races.length>1){
+                        setPrimaryEthinicity('07')
+                    }else if(races.length==1){
+                        setPrimaryEthinicity(races[0]);
+                    }
+                } 
+        
+            }
+            $j('#radioFedEthYes').change(
+                function(){
+                    checkEthnicity();
+                }
+            )
+            $j('#radioFedEthNo').change(
+                function(){
+                    checkEthnicity();
+                }
+            )
+            $j('input[name="race"]').change(
+                function(){
+                    checkEthnicity();
+                }
+            )
+        //END: Ethnicity Scripts
         
     })
 
