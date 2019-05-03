@@ -32,7 +32,6 @@
                                 })
                                 contacts.push(new Contact(element,phones,addresses,emails));
                             })
-                            console.log(contacts);
                             return contacts;  
                         })
                 } 
@@ -66,7 +65,7 @@
     
     var Address =function(address){  
         this.street=address.street;
-        this.lineTwo=address.lineTwo;
+        this.lineTwo=address.linetwo;
         this.unit=address.unit;
         this.city=address.city;
         this.state=address.state;
@@ -80,7 +79,6 @@
         this.lastName=element.lastName;
         for(var i=0;i<element.contactStudents[0].studentDetails.length;i++){
             if(currentRecord(element.contactStudents[0].studentDetails[i].startDate,element.contactStudents[0].studentDetails[i].endDate)){
-                console.log(this.relation=element.contactStudents[0].studentDetails[i]);
                 this.relation=element.contactStudents[0].studentDetails[i].relationship;
                 this.custody=element.contactStudents[0].studentDetails[i].custody;
                 this.emergency=element.contactStudents[0].studentDetails[i].emergency;

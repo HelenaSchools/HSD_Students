@@ -15,13 +15,14 @@
                         }
                     }
                 }
-                console.log(addresses);
+                //console.log(addresses);
                 if(addresses.length>0)
                 {
                     $scope.addresses=addresses;
                 }
-                console.log($scope.addresses);
-                
+                //console.log($scope.addresses);
+                //console.log($scope.addresses[0].unit==null)
+                //console.log($scope.addresses[0].unit==null)
             })
         }
     ]);
@@ -32,6 +33,7 @@
         this.relation=contact.relation,
         this.street=address.street,
         this.lineTwo=address.lineTwo,
+        this.unit=address.unit,
         this.city=address.city,
         this.postalCode=address.postalCode,
         this.type=address.type

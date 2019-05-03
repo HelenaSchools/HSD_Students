@@ -49,8 +49,8 @@
                             <span class="dataHead">{{address.type}}</span>
                             <div class="no-border-box">
                                 {{address.street}} <br/>
-                                <span ng-if="!address.lineTwo==undefined">{{address.lineTwo}}<br/></span> 
-                                <span ng-if="!address.unit==null">Unit: <br/></span>
+                                <span ng-if="!(address.lineTwo==null)">{{address.lineTwo}}<br/></span> 
+                                <span ng-if="!(address.unit==null)">Unit: {{address.unit}}<br/></span>
                                 <span>{{address.city}}, {{address.state}} {{address.postalCode}}</span>
                             </div>
                         </div>
