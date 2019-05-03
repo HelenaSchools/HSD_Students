@@ -66,3 +66,6 @@
 
 ## Version 1.3.00
     Update to automatically pick federal ethnicity when the race and ethnicity are selected.
+
+## Version 1.3.01
+    Bug fix on contacts2.html to ensure the Line 2 and Unit address are showing when appropriate. 
