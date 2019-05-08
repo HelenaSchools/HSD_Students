@@ -1,18 +1,20 @@
 <div style="display:none" id="advancedSearchHidden">
     <div id="advancedSearch">
-        <a id="preregistered" >Pre-registered</a>
-        <a id="graduated">Graduated</a>
+        <a id="preregistered" >~[text:psx.htmlc.admin_students.hsdStudentsAdvancedSearch.preRegistered]</a>
+        <a id="graduated">~[text:psx.htmlc.admin_students.hsdStudentsAdvancedSearch.graduated]</a>
     </div>
     </div>
     <script>
         $j(document).ready(function(){
             $j('a#selectAllStudents').closest('div').after($j('div#advancedSearchHidden').html());
             $j('a#preregistered').click(function(){
-                $j('#studentSearchInput').val('/enroll_status=-1');
+                $j(this).val('/enroll_status=-1');
+                $j('#studentSearchInput').val($j(this).val()).trigger('input');
                 $j("#searchButton").click();
             })
             $j('a#graduated').click(function(){
-                $j('#studentSearchInput').val('/enroll_status=3');
+                $j(this).val('/enroll_status=3');
+                $j('#studentSearchInput').val($j(this).val()).trigger('input');
                 $j("#searchButton").click();
             })            
         })
