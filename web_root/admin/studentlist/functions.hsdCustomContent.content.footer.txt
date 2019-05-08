@@ -1,1 +1,21 @@
-<script
+<div id="hsdEmailContacts" style="display:none">
+    <h2>Email Student Contacts</h2>
+    <table class="linkDescList">
+        <colgroup>
+            <col />
+            <col />
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="emailguardian.html">Email Student Contacts</a>
+                </td>
+                <td>Email currently selected student contacts</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $j('h2:contains("Enrollment")').before($j('#hsdEmailContacts').html());
+</script>
