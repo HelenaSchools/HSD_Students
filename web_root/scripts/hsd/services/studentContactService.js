@@ -13,14 +13,12 @@
                                     if (element.contactStudents[i].dcid==studentId){
                                         
                                         for(var j=0;j<element.contactStudents[i].studentDetails.length;j++){
-                                            console.log(element.contactStudents[i].studentDetails[j])
                                             if(currentRecord(element.contactStudents[i].studentDetails[j].startDate,element.contactStudents[i].studentDetails[j].endDate)){
                                                 valid=true;
                                             }
                                         }
                                     }
                                 } 
-                                console.log(valid)
                                 if(valid){
                                 var phones=[];
                                 var emails=[];
