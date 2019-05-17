@@ -8,17 +8,28 @@
                         .then(function(result){
                             
                             _.each(result.data,function(element){
-                                
+                                var valid=false;
+                                 for(var i=0; i<element.contactStudents.length;i++){
+                                    if (element.contactStudents[i].dcid==studentId){
+                                        
+                                        for(var j=0;j<element.contactStudents[i].studentDetails.length;j++){
+                                            console.log(element.contactStudents[i].studentDetails[j])
+                                            if(currentRecord(element.contactStudents[i].studentDetails[j].startDate,element.contactStudents[i].studentDetails[j].endDate)){
+                                                valid=true;
+                                            }
+                                        }
+                                    }
+                                } 
+                                console.log(valid)
+                                if(valid){
                                 var phones=[];
                                 var emails=[];
                                 var addresses=[];
                                 _.each(element.phones,function(phone){
                                     if(!phone.deleted){
-                                        
                                         phones.push(new Phone(phone));
                                     }
                                 })
-                                
                                 
                                 _.each(element.emails,function(email){
                                     if(!email.deleted){
@@ -31,6 +42,7 @@
                                     }
                                 })
                                 contacts.push(new Contact(element,phones,addresses,emails));
+                            }
                             })
                             return contacts;  
                         })
