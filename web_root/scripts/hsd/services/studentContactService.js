@@ -19,6 +19,8 @@
                                         }
                                     }
                                 } 
+                                console.log(element.firstName)
+                                console.log(valid)
                                 if(valid){
                                 var phones=[];
                                 var emails=[];
